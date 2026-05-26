@@ -33,6 +33,34 @@
             --border-color: #222;
         }
 
+        /* Top Promo Bar */
+        .promo-bar {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--primary-color);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            box-shadow: 0 0 15px rgba(134, 239, 77, 0.2);
+        }
+
+        .promo-bar span {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            animation: blink 1.5s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; text-shadow: 0 0 10px #86ef4d; }
+        }
+
         /* Navigation Bar */
         header {
             display: flex;
@@ -42,7 +70,7 @@
             background: rgba(11, 11, 11, 0.95);
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 40px; /* Κατεβαίνει για να μην κρύβει την μπάρα */
             z-index: 1000;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
@@ -97,7 +125,7 @@
         /* Hero Section */
         .hero-section {
             max-width: 1200px;
-            margin: 100px auto 40px; 
+            margin: 160px auto 40px; /* Αυξήθηκε το margin λόγω της μπάρας */
             padding: 40px 20px;
             display: flex;
             align-items: center;
@@ -244,11 +272,39 @@
             font-weight: 500;
         }
 
+        /* Discount Price Area */
+        .price-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .old-price {
+            font-size: 1.3rem;
+            color: #ff4a4a;
+            text-decoration: line-through;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
         .pricing-card .price {
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             font-weight: 800;
             color: #ffffff;
-            margin-bottom: 30px;
+            line-height: 1;
+        }
+
+        .discount-tag {
+            background-color: #ff4a4a;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-top: 8px;
+            text-transform: uppercase;
         }
 
         .pricing-card .features-list {
@@ -445,11 +501,17 @@
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 768px) {
+            .promo-bar {
+                font-size: 0.8rem;
+                padding: 8px 10px;
+            }
+
             header {
                 flex-direction: column; 
                 gap: 12px;
                 padding: 15px 10px;
                 position: absolute; 
+                top: 50px; /* Προσαρμογή στο κινητό */
             }
 
             nav ul {
@@ -465,7 +527,7 @@
             .hero-section {
                 flex-direction: column;
                 text-align: center;
-                margin-top: 150px; 
+                margin-top: 190px; 
                 padding-top: 10px;
                 gap: 30px;
             }
@@ -502,6 +564,10 @@
     </style>
 </head>
 <body>
+
+    <div class="promo-bar">
+        <i class="fa-solid fa-fire-flame-curved"></i> SPECIAL OFFER: MEGA DISCOUNT VALID UNTIL <span>JUNE 30TH</span>! DON'T MISS OUT!
+    </div>
 
     <header>
         <div class="logo">NexGen<span>Stream</span></div>
@@ -561,7 +627,11 @@
         <div class="pricing-grid">
             <div class="pricing-card">
                 <div class="duration">3 Months Plan</div>
-                <div class="price">$30</div>
+                <div class="price-container">
+                    <div class="old-price">$50</div>
+                    <div class="price">$30</div>
+                    <div class="discount-tag">Save 40%</div>
+                </div>
                 <ul class="features-list">
                     <li><i class="fa-solid fa-check"></i> SD / HD / FHD / 4K IPTV</li>
                     <li><i class="fa-solid fa-check"></i> +40,000 Channels with EPG</li>
@@ -577,7 +647,11 @@
 
             <div class="pricing-card featured">
                 <div class="duration" style="color: var(--primary-color);">6 Months Plan</div>
-                <div class="price">$45</div>
+                <div class="price-container">
+                    <div class="old-price">$90</div>
+                    <div class="price">$45</div>
+                    <div class="discount-tag">Save 50%</div>
+                </div>
                 <ul class="features-list">
                     <li><i class="fa-solid fa-check"></i> SD / HD / FHD / 4K IPTV</li>
                     <li><i class="fa-solid fa-check"></i> +40,000 Channels with EPG</li>
@@ -593,7 +667,11 @@
 
             <div class="pricing-card">
                 <div class="duration">1 Year Plan</div>
-                <div class="price">$60</div>
+                <div class="price-container">
+                    <div class="old-price">$150</div>
+                    <div class="price">$60</div>
+                    <div class="discount-tag">Save 60%</div>
+                </div>
                 <ul class="features-list">
                     <li><i class="fa-solid fa-check"></i> SD / HD / FHD / 4K IPTV</li>
                     <li><i class="fa-solid fa-check"></i> +40,000 Channels with EPG</li>
