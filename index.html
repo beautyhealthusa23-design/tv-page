@@ -31,6 +31,7 @@
             --primary-color: #86ef4d; 
             --card-bg: #121212;
             --border-color: #222;
+            --text-muted: #94a3b8;
         }
 
         /* Top Promo Bar */
@@ -68,9 +69,10 @@
             align-items: center;
             padding: 20px 8%;
             background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
-            top: 40px; /* Κατεβαίνει για να μην κρύβει την μπάρα */
+            top: 41px; 
             z-index: 1000;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
@@ -91,7 +93,8 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
+            align-items: center;
         }
 
         nav ul a {
@@ -105,6 +108,24 @@
             color: var(--primary-color);
         }
 
+        .btn-telegram-nav {
+            background-color: #24A1DE;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-telegram-nav:hover {
+            opacity: 0.9;
+        }
+
+        /* Free Trial Button */
         .btn-free-trial {
             background-color: var(--primary-color);
             color: #000;
@@ -114,7 +135,9 @@
             font-size: 0.95rem;
             transition: transform 0.3s, background-color 0.3s;
             text-align: center;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-free-trial:hover {
@@ -125,7 +148,7 @@
         /* Hero Section */
         .hero-section {
             max-width: 1200px;
-            margin: 160px auto 40px; /* Αυξήθηκε το margin λόγω της μπάρας */
+            margin: 180px auto 40px; 
             padding: 40px 20px;
             display: flex;
             align-items: center;
@@ -250,7 +273,7 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 40px 30px;
-            width: 320px;
+            width: 340px;
             text-align: center;
             position: relative;
             transition: transform 0.3s, border-color 0.3s;
@@ -266,13 +289,12 @@
         }
 
         .pricing-card .duration {
-            font-size: 1.1rem;
-            color: #aaa;
+            font-size: 1.2rem;
+            color: #fff;
             margin-bottom: 15px;
-            font-weight: 500;
+            font-weight: 700;
         }
 
-        /* Discount Price Area */
         .price-container {
             display: flex;
             flex-direction: column;
@@ -316,7 +338,7 @@
         }
 
         .pricing-card .features-list li {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #ccc;
             margin-bottom: 14px;
             display: flex;
@@ -326,7 +348,7 @@
 
         .pricing-card .features-list i {
             color: var(--primary-color);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         .btn-buy {
@@ -334,17 +356,18 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background-color: var(--primary-color);
-            color: #000;
+            background-color: #25D366; 
+            color: #fff;
             padding: 14px;
             border-radius: 30px;
             font-weight: 700;
+            font-size: 1rem;
             width: 100%;
-            transition: opacity 0.3s;
+            transition: background-color 0.2s;
         }
 
         .btn-buy:hover {
-            opacity: 0.9;
+            background-color: #20ba5a;
         }
 
         .setup-time {
@@ -354,7 +377,7 @@
             display: block;
         }
 
-        /* Movies Section - 16:9 Cinematic Aspect Ratio */
+        /* Movies Section */
         .movies-section {
             max-width: 1200px;
             margin: 0 auto 60px;
@@ -489,6 +512,51 @@
             opacity: 0.9;
         }
 
+        /* Telegram Community Section */
+        .telegram-community {
+            text-align: center;
+            max-width: 750px;
+            margin: 80px auto;
+            padding: 45px 30px;
+            background: linear-gradient(135deg, rgba(36, 161, 222, 0.1) 0%, rgba(11, 11, 11, 1) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(36, 161, 222, 0.2);
+        }
+
+        .telegram-community h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .telegram-community h2 span {
+            color: #24A1DE;
+        }
+
+        .telegram-community p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .btn-telegram-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #24A1DE;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 20px rgba(36, 161, 222, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-telegram-large:hover {
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         footer {
             background-color: #000;
@@ -511,11 +579,11 @@
                 gap: 12px;
                 padding: 15px 10px;
                 position: absolute; 
-                top: 50px; /* Προσαρμογή στο κινητό */
+                top: 38px; 
             }
 
             nav ul {
-                gap: 15px;
+                gap: 12px;
                 flex-wrap: wrap; 
                 justify-content: center;
             }
@@ -524,10 +592,15 @@
                 font-size: 0.85rem;
             }
 
+            .btn-telegram-nav {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
             .hero-section {
                 flex-direction: column;
                 text-align: center;
-                margin-top: 190px; 
+                margin-top: 210px; 
                 padding-top: 10px;
                 gap: 30px;
             }
@@ -565,10 +638,12 @@
 </head>
 <body>
 
+    <!-- Promo Bar -->
     <div class="promo-bar">
         <i class="fa-solid fa-fire-flame-curved"></i> SPECIAL OFFER: MEGA DISCOUNT VALID UNTIL <span>JUNE 30TH</span>! DON'T MISS OUT!
     </div>
 
+    <!-- Navigation Header -->
     <header>
         <div class="logo">NexGen<span>Stream</span></div>
         <nav>
@@ -578,16 +653,21 @@
                 <li><a href="#movies">Viral Shows</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact Us</a></li>
+                <li><a href="https://t.me/+oi-eSoxYjhw2MDU0" target="_blank" class="btn-telegram-nav"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
             <h1>Best IPTV Service at an <span>Affordable Price</span></h1>
             <p>Experience breathtaking 4K visuals on any device, at any place, at any time. Discover an expansive library with over 40,000 channels and more than 54,000 VOD options, all backed by a reliable 100% uptime guarantee.</p>
             
-            <a href="#pricing" class="btn-free-trial">Free Trial</a>
+            <!-- WhatsApp Free Trial Link (Updated) -->
+            <a href="https://wa.me/447888389239?text=Hello!%20I%20would%20like%20to%20request%20a%20Free%20Trial%20to%20test%20your%20IPTV%20service.%20Thank%20you!" target="_blank" class="btn-free-trial">
+                <i class="fa-brands fa-whatsapp"></i> Free Trial
+            </a>
             
             <div class="supported-devices">
                 <div><i class="fa-solid fa-tv"></i>Smart TV</div>
@@ -602,6 +682,7 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="stats-container">
         <div class="stat-item">
             <h3>+7K</h3>
@@ -621,10 +702,13 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
     <section id="pricing" class="pricing-section">
         <h2 class="main-title">Choose Your <span>IPTV Plan</span></h2>
         
         <div class="pricing-grid">
+            
+            <!-- 3 MONTHS PLAN -->
             <div class="pricing-card">
                 <div class="duration">3 Months Plan</div>
                 <div class="price-container">
@@ -641,10 +725,13 @@
                     <li><i class="fa-solid fa-check"></i> 99.9% Server Uptime</li>
                     <li><i class="fa-solid fa-check"></i> 24/7 Premium Support</li>
                 </ul>
-                <a href="#" class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Buy Now</a>
+                <a href="https://wa.me/447888389239?text=Hello!%20I%20want%20to%20buy%20the%203%20Months%20Plan%20%28%2430%29.%20Please%20send%20me%20payment%20details." target="_blank" class="btn-buy">
+                    <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                </a>
                 <span class="setup-time">Ready within 5-7 mins</span>
             </div>
 
+            <!-- 6 MONTHS PLAN -->
             <div class="pricing-card featured">
                 <div class="duration" style="color: var(--primary-color);">6 Months Plan</div>
                 <div class="price-container">
@@ -661,10 +748,13 @@
                     <li><i class="fa-solid fa-check"></i> 99.9% Server Uptime</li>
                     <li><i class="fa-solid fa-check"></i> 24/7 Premium Support</li>
                 </ul>
-                <a href="#" class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Buy Now</a>
+                <a href="https://wa.me/447888389239?text=Hello!%20I%20want%20to%20buy%20the%206%20Months%20Plan%20%28%2445%29.%20Please%20send%20me%20payment%20details." target="_blank" class="btn-buy">
+                    <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                </a>
                 <span class="setup-time">Ready within 5-7 mins</span>
             </div>
 
+            <!-- 1 YEAR PLAN -->
             <div class="pricing-card">
                 <div class="duration">1 Year Plan</div>
                 <div class="price-container">
@@ -681,12 +771,15 @@
                     <li><i class="fa-solid fa-check"></i> 99.9% Server Uptime</li>
                     <li><i class="fa-solid fa-check"></i> 24/7 Premium Support</li>
                 </ul>
-                <a href="#" class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Buy Now</a>
+                <a href="https://wa.me/447888389239?text=Hello!%20I%20want%20to%20buy%20the%201%20Year%20Plan%20%28%2460%29.%20Please%20send%20me%20payment%20details." target="_blank" class="btn-buy">
+                    <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                </a>
                 <span class="setup-time">Ready within 5-7 mins</span>
             </div>
         </div>
     </section>
 
+    <!-- Viral Movies Section -->
     <section id="movies" class="movies-section">
         <h2 class="main-title">Viral Movies & <span>TV Shows</span></h2>
         
@@ -706,6 +799,7 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
     <section id="faq" class="faq-section">
         <h2 class="main-title">Frequently Asked <span>Questions</span></h2>
         <div class="faq-container">
@@ -724,6 +818,7 @@
         </div>
     </section>
 
+    <!-- Contact Us Section -->
     <section id="contact" class="contact-section">
         <h2 class="main-title">Contact <span>Us</span></h2>
         <form class="contact-form" action="#" method="POST">
@@ -743,6 +838,16 @@
         </form>
     </section>
 
+    <!-- Telegram Group Section -->
+    <section class="telegram-community">
+        <h2>Join Our <span>Telegram</span> Community!</h2>
+        <p>Get instant updates on channel renewals, newly added blockbusters, technical maintenance updates, and participate in exclusive discount events.</p>
+        <a href="https://t.me/+oi-eSoxYjhw2MDU0" target="_blank" class="btn-telegram-large">
+            <i class="fa-brands fa-telegram"></i> Enter Telegram Group
+        </a>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 NexGenStream. All rights reserved.</p>
     </footer>
