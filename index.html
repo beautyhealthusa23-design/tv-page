@@ -186,6 +186,7 @@
             margin-top: 25px;
             color: #666;
             font-size: 1.2rem;
+            flex-wrap: wrap;
         }
 
         .supported-devices div {
@@ -506,6 +507,10 @@
             cursor: pointer;
             transition: opacity 0.3s;
             margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .btn-submit:hover {
@@ -616,7 +621,6 @@
 
             .supported-devices {
                 justify-content: center;
-                flex-wrap: wrap;
             }
 
             .stats-container {
@@ -664,7 +668,7 @@
             <h1>Best IPTV Service at an <span>Affordable Price</span></h1>
             <p>Experience breathtaking 4K visuals on any device, at any place, at any time. Discover an expansive library with over 40,000 channels and more than 54,000 VOD options, all backed by a reliable 100% uptime guarantee.</p>
             
-            <!-- WhatsApp Free Trial Link (Updated) -->
+            <!-- WhatsApp Free Trial Link -->
             <a href="https://wa.me/447888389239?text=Hello!%20I%20would%20like%20to%20request%20a%20Free%20Trial%20to%20test%20your%20IPTV%20service.%20Thank%20you!" target="_blank" class="btn-free-trial">
                 <i class="fa-brands fa-whatsapp"></i> Free Trial
             </a>
@@ -818,10 +822,10 @@
         </div>
     </section>
 
-    <!-- Contact Us Section -->
+    <!-- Contact Us Section (UPDATED FOR WHATSAPP REDIRECT) -->
     <section id="contact" class="contact-section">
         <h2 class="main-title">Contact <span>Us</span></h2>
-        <form class="contact-form" action="#" method="POST">
+        <form class="contact-form" id="whatsappContactForm">
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" placeholder="Enter your name" required>
@@ -834,7 +838,9 @@
                 <label for="message">Message</label>
                 <textarea id="message" rows="5" placeholder="How can we help you?" required></textarea>
             </div>
-            <button type="submit" class="btn-submit">Send Message</button>
+            <button type="submit" class="btn-submit">
+                <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+            </button>
         </form>
     </section>
 
@@ -851,6 +857,33 @@
     <footer>
         <p>&copy; 2026 NexGenStream. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Contact Form to WhatsApp redirection -->
+    <script>
+        document.getElementById('whatsappContactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Σταματάει το κλασικό reload της σελίδας
+            
+            // Παίρνουμε τις τιμές που έγραψε ο χρήστης
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Το WhatsApp νούμερό σου
+            const phoneNumber = "447888389239"; 
+            
+            // Σχεδιάζουμε το κείμενο με όμορφες αλλαγές γραμμών (%0A)
+            const text = "New Contact Form Message!%0A%0A" + 
+                         "*Name:* " + encodeURIComponent(name) + "%0A" + 
+                         "*Email:* " + encodeURIComponent(email) + "%0A" + 
+                         "*Message:* " + encodeURIComponent(message);
+            
+            // Δημιουργούμε το τελικό Link
+            const whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + text;
+            
+            // Ανοίγουμε το WhatsApp σε νέο παράθυρο
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
 
 </body>
 </html>
