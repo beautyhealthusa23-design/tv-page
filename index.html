@@ -108,6 +108,19 @@
             color: var(--primary-color);
         }
 
+        /* Giveaway Menu Item styling */
+        .nav-giveaway {
+            color: #ff4a4a !important;
+            font-weight: 700 !important;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); text-shadow: 0 0 8px rgba(255, 74, 74, 0.4); }
+            100% { transform: scale(1); }
+        }
+
         .btn-telegram-nav {
             background-color: #24A1DE;
             color: white !important;
@@ -517,31 +530,80 @@
             opacity: 0.9;
         }
 
-        /* Telegram Community Section */
+        /* Telegram Community Section & Giveaway Info */
         .telegram-community {
             text-align: center;
             max-width: 750px;
             margin: 80px auto;
             padding: 45px 30px;
-            background: linear-gradient(135deg, rgba(36, 161, 222, 0.1) 0%, rgba(11, 11, 11, 1) 100%);
+            background: linear-gradient(135deg, rgba(36, 161, 222, 0.15) 0%, rgba(11, 11, 11, 1) 100%);
             border-radius: 16px;
-            border: 1px solid rgba(36, 161, 222, 0.2);
+            border: 2px dashed rgba(36, 161, 222, 0.4);
+            position: relative;
+        }
+
+        .giveaway-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff4a4a;
+            color: #fff;
+            padding: 6px 18px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(255, 74, 74, 0.4);
         }
 
         .telegram-community h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 800;
+            margin-top: 10px;
         }
 
         .telegram-community h2 span {
             color: #24A1DE;
         }
 
-        .telegram-community p {
-            color: var(--text-muted);
+        .telegram-community .promo-text {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .prizes-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-bottom: 30px;
-            font-size: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .prize-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(36, 161, 222, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .prize-tag span {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .telegram-community p.sub-text {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
         }
 
         .btn-telegram-large {
@@ -550,16 +612,17 @@
             gap: 12px;
             background-color: #24A1DE;
             color: white;
-            padding: 16px 40px;
+            padding: 16px 45px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 20px rgba(36, 161, 222, 0.3);
-            transition: transform 0.2s;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 25px rgba(36, 161, 222, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .btn-telegram-large:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(36, 161, 222, 0.6);
         }
 
         /* Footer */
@@ -605,7 +668,7 @@
             .hero-section {
                 flex-direction: column;
                 text-align: center;
-                margin-top: 210px; 
+                margin-top: 240px; /* Adjusted slightly for longer menu */
                 padding-top: 10px;
                 gap: 30px;
             }
@@ -637,6 +700,10 @@
             .stat-item h3 {
                 font-size: 2rem;
             }
+
+            .telegram-community h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -657,6 +724,7 @@
                 <li><a href="#movies">Viral Shows</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#giveaway" class="nav-giveaway">🎁 Mega Giveaway</a></li>
                 <li><a href="https://t.me/+oi-eSoxYjhw2MDU0" target="_blank" class="btn-telegram-nav"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
             </ul>
         </nav>
@@ -822,7 +890,7 @@
         </div>
     </section>
 
-    <!-- Contact Us Section (UPDATED FOR WHATSAPP REDIRECT) -->
+    <!-- Contact Us Section -->
     <section id="contact" class="contact-section">
         <h2 class="main-title">Contact <span>Us</span></h2>
         <form class="contact-form" id="whatsappContactForm">
@@ -844,12 +912,21 @@
         </form>
     </section>
 
-    <!-- Telegram Group Section -->
-    <section class="telegram-community">
+    <!-- Telegram Group Section WITH GIVEAWAY (UPDATED & TRANSLATED TO ENGLISH) -->
+    <section id="giveaway" class="telegram-community">
+        <div class="giveaway-badge">🎁 Mega Giveaway</div>
         <h2>Join Our <span>Telegram</span> Community!</h2>
-        <p>Get instant updates on channel renewals, newly added blockbusters, technical maintenance updates, and participate in exclusive discount events.</p>
+        <p class="promo-text">🔥 The first 1,000 members to join will be automatically entered into a lucky draw to win 7 FREE premium IPTV subscriptions!</p>
+        
+        <div class="prizes-grid">
+            <div class="prize-tag">🥇 2x <span>1-Year Plans</span></div>
+            <div class="prize-tag">🥈 2x <span>6-Month Plans</span></div>
+            <div class="prize-tag">🥉 3x <span>3-Month Plans</span></div>
+        </div>
+
+        <p class="sub-text">In addition to the raffle, our group is where you'll get instant updates on channel renewals, newly added blockbusters, server maintenance, and exclusive flash sales.</p>
         <a href="https://t.me/+oi-eSoxYjhw2MDU0" target="_blank" class="btn-telegram-large">
-            <i class="fa-brands fa-telegram"></i> Enter Telegram Group
+            <i class="fa-brands fa-telegram"></i> Enter Telegram & Win
         </a>
     </section>
 
@@ -861,26 +938,20 @@
     <!-- JavaScript for Contact Form to WhatsApp redirection -->
     <script>
         document.getElementById('whatsappContactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Σταματάει το κλασικό reload της σελίδας
+            e.preventDefault(); 
             
-            // Παίρνουμε τις τιμές που έγραψε ο χρήστης
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // Το WhatsApp νούμερό σου
             const phoneNumber = "447888389239"; 
             
-            // Σχεδιάζουμε το κείμενο με όμορφες αλλαγές γραμμών (%0A)
             const text = "New Contact Form Message!%0A%0A" + 
                          "*Name:* " + encodeURIComponent(name) + "%0A" + 
                          "*Email:* " + encodeURIComponent(email) + "%0A" + 
                          "*Message:* " + encodeURIComponent(message);
             
-            // Δημιουργούμε το τελικό Link
             const whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + text;
-            
-            // Ανοίγουμε το WhatsApp σε νέο παράθυρο
             window.open(whatsappUrl, '_blank');
         });
     </script>
